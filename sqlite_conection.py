@@ -1,5 +1,6 @@
 import sqlite3
 import queries as qu
+import pandas as pd
 # # Coonection
 # connection = sqlite3.connect('rpg_db.sqlite3')
 
@@ -46,5 +47,9 @@ def execute_q(conn, query):
 if __name__ == '__main__':
     conn = connect_to_db()
     results = execute_q(conn, qu.query_1)
-    print(results[::5])
+    # print(results[::5])
+
+    # change the tuples to dataframes
+    df = pd.DataFrame(results)
+    print(df.head())
 
