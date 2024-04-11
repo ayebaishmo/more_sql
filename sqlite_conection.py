@@ -1,6 +1,5 @@
 import sqlite3
-
-
+import queries as qu
 # # Coonection
 # connection = sqlite3.connect('rpg_db.sqlite3')
 
@@ -20,17 +19,32 @@ import sqlite3
 ## we shalll be using function to avoid reptition
 
 # connection to the database
-query_1 = 'SELECT * FROM charactercreator_character;'
+# query_1 = 'SELECT * FROM charactercreator_character;'
+# def connect_to_db(db_name = 'rpg_db.sqlite3'):
+#     return sqlite3.connect(db_name)
+
+# def execute_q(conn, query):
+#     curs = conn.cursor()
+#     curs.execute(query)
+#     return curs.fetchall()
+
+# if __name__ == '__main__':
+#     conn =connect_to_db()
+#     results = execute_q(conn, query_1)
+#     print(results[::5])
+
+
+# separating the query from the connnection
 def connect_to_db(db_name = 'rpg_db.sqlite3'):
     return sqlite3.connect(db_name)
 
 def execute_q(conn, query):
     curs = conn.cursor()
-    curs.execute(query_1)
+    curs.execute(query)
     return curs.fetchall()
 
 if __name__ == '__main__':
-    conn =connect_to_db()
-    results = execute_q(conn, query_1)
+    conn = connect_to_db()
+    results = execute_q(conn, qu.query_1)
     print(results[::5])
 
