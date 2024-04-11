@@ -46,7 +46,7 @@ def execute_q(conn, query):
 
 if __name__ == '__main__':
     conn = connect_to_db()
-    results = execute_q(conn, qu.query_1)
+    results = execute_q(conn, qu.TOTAL_ITEMS)
     # print(results[::5])
 
     # change the tuples to dataframes
